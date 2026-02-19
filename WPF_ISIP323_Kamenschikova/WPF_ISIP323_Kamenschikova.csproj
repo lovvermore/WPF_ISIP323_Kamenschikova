@@ -8,4 +8,34 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\LiveDoMorning.jpg" />
+    <None Remove="Images\Obed.jpg" />
+    <None Remove="Images\Piterskaya8.jpg" />
+    <None Remove="Images\Poschadi.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\LiveDoMorning.jpg" />
+    <Resource Include="Images\Poschadi.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.13">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Obed.jpg" />
+    <Resource Include="Images\LastMonday.jpg" />
+    <Resource Include="Images\Piterskaya8.jpg" />
+  </ItemGroup>
+
 </Project>
