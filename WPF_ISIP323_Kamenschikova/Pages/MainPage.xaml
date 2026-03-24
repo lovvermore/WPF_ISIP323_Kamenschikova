@@ -9,27 +9,43 @@
       Title="MainPage">
 
     <Grid>
-        <Grid.RowDefinitions>   
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="InfoList" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListBox x:Name="InfoList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
-                
                 <DataTemplate>
-                    
                     <StackPanel x:Name="eblan">
                         <Image Source="{Binding Image}" Height="300" />
                         <TextBlock Text="{Binding Name}"/>
-                        <TextBlock Text="{Binding Rating}"/>
+                        <TextBlock Text="{Binding Rating, StringFormat={}{0}/10}" />
                         <TextBlock Text="{Binding StartDate}"/>
                         <TextBlock Text="{Binding AgeCategory.Name}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBox x:Name="SearchTextBox" FontSize="15" Margin="15" TextChanged="SearchTextBox_TextChanged" Text="Поиск..."/>
+            <ComboBox x:Name="SortComboBox" Margin="15" SelectedIndex="0" FontSize="15" SelectionChanged="SortComboBox_SelectionChanged">
+                <ComboBoxItem>
+                    Сортировка
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    По названию
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    По рейтингу
+                </ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <Button x:Name="AccountButton" HorizontalAlignment="Right" Margin="15" Content="Личный кабинет" FontSize="15" Click="AccountButton_Click"/>
+
     </Grid>
 </Page>

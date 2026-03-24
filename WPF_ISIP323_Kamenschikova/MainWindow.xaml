@@ -7,7 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Frame x:Name="MainFrame" Source="Pages/MainPage.xaml"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Frame x:Name="MainFrame" Source="Pages/MainPage.xaml" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+        <Button x:Name="BackButton" Grid.Row="0" Content="НАЗАД ОЛУХ" Click="BackButton_Click"/>
 
     </Grid>
 </Window>

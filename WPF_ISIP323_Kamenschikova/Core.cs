@@ -9,5 +9,7 @@ namespace WPF_ISIP323_Kamenschikova
     class Core
     {
         public static Pr14GovnoContext Context = new Pr14GovnoContext();
+        public static User UserEblan = null;
     }
+
 }
