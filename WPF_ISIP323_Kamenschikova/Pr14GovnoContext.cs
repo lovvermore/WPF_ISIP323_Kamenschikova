@@ -29,6 +29,8 @@ public partial class Pr14GovnoContext : DbContext
 
     public virtual DbSet<Session> Sessions { get; set; }
 
+    public virtual DbSet<SessionSeat> SessionSeats { get; set; }
+
     public virtual DbSet<Ticket> Tickets { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
@@ -141,6 +143,26 @@ public partial class Pr14GovnoContext : DbContext
                 .HasForeignKey(d => d.HallId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Session_HallID");
+        });
+
+        modelBuilder.Entity<SessionSeat>(entity =>
+        {
+            entity.HasKey(e => new { e.SessionId, e.SeatId });
+
+            entity.ToTable("SessionSeat");
+
+            entity.Property(e => e.SessionId).HasColumnName("SessionID");
+            entity.Property(e => e.SeatId).HasColumnName("SeatID");
+
+            entity.HasOne(d => d.Seat).WithMany(p => p.SessionSeats)
+                .HasForeignKey(d => d.SeatId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_SessionSeat_Seat");
+
+            entity.HasOne(d => d.Session).WithMany(p => p.SessionSeats)
+                .HasForeignKey(d => d.SessionId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_SessionSeat_Session");
         });
 
         modelBuilder.Entity<Ticket>(entity =>

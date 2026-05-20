@@ -27,6 +27,8 @@
                         <TextBlock Text="{Binding Rating, StringFormat={}{0}/10}" />
                         <TextBlock Text="{Binding StartDate}"/>
                         <TextBlock Text="{Binding AgeCategory.Name}"/>
+                        <Button x:Name="ChooseFilm" Content="Выбрать фильм"
+                                Tag="{Binding}" Click="ChooseFilm_Click"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

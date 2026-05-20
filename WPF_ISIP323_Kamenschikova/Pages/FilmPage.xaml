@@ -9,6 +9,36 @@
       Title="FilmPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>                    
+
+        <ListBox x:Name="InfoList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel>
+
+                    </WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>                                <StackPanel x:Name="eblan">
+                        <Image Source="{Binding Image}" Height="300" />
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Rating, StringFormat={}{0}/10}" />
+                        <TextBlock Text="{Binding StartDate}"/>
+                        <TextBlock Text="{Binding AgeCategory.Name}"/>
+                        <TextBlock Text="{Binding Description}"/>
+                        <Button x:Name="ChooseSession" Content="Выбрать сеанс"
+            Tag="{Binding}" Click="ChooseSession_Click"/>
+        </StackPanel>
+                        <TextBlock Text="{Binding Date}"/>
+                        <TextBlock Text="{Binding Hall.Name}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>

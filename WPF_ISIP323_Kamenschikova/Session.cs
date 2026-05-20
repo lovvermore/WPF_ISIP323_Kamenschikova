@@ -19,5 +19,7 @@ public partial class Session
 
     public virtual HallId Hall { get; set; } = null!;
 
+    public virtual ICollection<SessionSeat> SessionSeats { get; set; } = new List<SessionSeat>();
+
     public virtual ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
 }

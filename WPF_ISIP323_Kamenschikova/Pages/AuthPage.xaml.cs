@@ -46,7 +46,7 @@ namespace WPF_ISIP323_Kamenschikova.Pages
                 MessageBox.Show("Еблан успешно вошел");
                 NavigationService.Navigate(new AccountPage());
             }
-            NavigationService.Navigate(new AccountPage());
+            
         }
 
         private void RegistrationButton_Click(object sender, RoutedEventArgs e)

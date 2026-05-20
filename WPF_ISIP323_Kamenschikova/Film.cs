@@ -24,4 +24,9 @@ public partial class Film
     public virtual ICollection<Session> Sessions { get; set; } = new List<Session>();
 
     public virtual ICollection<Genre> Genres { get; set; } = new List<Genre>();
+
+    public static implicit operator Film(Session v)
+    {
+        throw new NotImplementedException();
+    }
 }

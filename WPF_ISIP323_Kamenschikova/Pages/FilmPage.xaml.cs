@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,36 @@ namespace WPF_ISIP323_Kamenschikova.Pages
     /// </summary>
     public partial class FilmPage : Page
     {
-        public FilmPage()
+        public Film FilmShow { get; set; }
+
+
+        public FilmPage(Film film)
         {
             InitializeComponent();
+            FilmShow = film;
+            List<Film>films = new List<Film>(); 
+            films.Add(film);
+            InfoList.ItemsSource = films;
         }
+
+
+        private void ChooseSession_Click(object sender, RoutedEventArgs e)
+        {
+            if (Core.UserEblan != null) 
+            
+            { 
+                Session session = (sender as Button).DataContext as Session;
+                if (session != null)
+                {
+                    NavigationService.Navigate(new SessionPage(session));
+                }
+            } 
+            else 
+            { 
+                MessageBox.Show("Еблан в аккаунт войди бож"); 
+                NavigationService.Navigate(new AuthPage()); 
+            }
+        }
+
     }
 }

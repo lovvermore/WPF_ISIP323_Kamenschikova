@@ -75,5 +75,12 @@ namespace WPF_ISIP323_Kamenschikova.Pages
                 NavigationService.Navigate(new AccountPage());
             }
         }
+
+        private void ChooseFilm_Click(object sender, RoutedEventArgs e)
+        {
+            Film film = (sender as Button).DataContext as Film;
+            if (film != null)
+                NavigationService.Navigate(new FilmPage(film));
+        }
     }
 }
